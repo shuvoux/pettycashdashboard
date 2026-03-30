@@ -95,7 +95,7 @@ export default function HubDetailPanel({ hubName, allTransactions, onClose }: Pr
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" tick={{ fontSize: 9 }} interval={2} />
                 <YAxis tickFormatter={(v) => "৳" + (v / 1e6).toFixed(1) + "M"} tick={{ fontSize: 9 }} />
-                <Tooltip formatter={(v: number) => [formatBDT(v), "Expense"]} />
+                <Tooltip formatter={(v) => [formatBDT(Number(v)), "Expense"]} />
                 <Line type="monotone" dataKey="expense" stroke="#2E75B6" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
@@ -108,7 +108,7 @@ export default function HubDetailPanel({ hubName, allTransactions, onClose }: Pr
               <BarChart data={employees} layout="vertical" margin={{ top: 2, right: 60, left: 0, bottom: 2 }}>
                 <XAxis type="number" tick={{ fontSize: 9 }} tickFormatter={(v) => "৳" + (v / 1000).toFixed(0) + "K"} />
                 <YAxis type="category" dataKey="employee" width={100} tick={{ fontSize: 9 }} />
-                <Tooltip formatter={(v: number) => [formatBDT(v), "Expense"]} />
+                <Tooltip formatter={(v) => [formatBDT(Number(v)), "Expense"]} />
                 <Bar dataKey="expense" fill="#2E75B6" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
